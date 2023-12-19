@@ -12,7 +12,27 @@
       <h1>Sign up</h1>
       <form method="POST" action=".">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.non_field_errors }}
+
+        <div>
+          <label for="">username</label><br>
+          {{ form.username }}
+        </div>
+
+        <div>
+          <label for="">email</label><br>
+          {{ form.email }}
+        </div>
+
+        <div>
+          <label for="">password</label><br>
+          {{ form.password1 }}
+        </div>
+
+        <div>
+          <label for="">repeat password</label><br>
+          {{ form.password2 }}
+        </div>
 
         <button type="">Submit</button>
 
