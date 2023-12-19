@@ -21,7 +21,7 @@
       <h2>Products</h2>
       {% for product in products %}
         <div>
-         <a href="">
+        <a href="{% url 'item:detail' product.id %}">
           <div>
             <img src="{{ product.image.url }}" alt="">
           </div>
