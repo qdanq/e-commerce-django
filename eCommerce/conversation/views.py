@@ -9,7 +9,7 @@ def new_conversation(request, product_pk):
     if product.created_by == request.user:
         return redirect('/')
 
-    conversations = Conversation.objects.filter(product=product).filter(members_in=[request.user.id])
+    conversations = Conversation.objects.filter(product=product).filter(members__in=[request.user.id])
 
     if conversations:
         pass
@@ -31,7 +31,7 @@ def new_conversation(request, product_pk):
             return redirect('item:detail', pk=product_pk)
     else:
         form = ConversationMessageForm()
-    return render(request, 'conversation/new.html', {
+    return render(request, 'new.html', {
         'form': form
         })   
          
