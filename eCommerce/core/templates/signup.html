@@ -10,6 +10,13 @@
   <body>
     <div>
       <h1>Sign up</h1>
+      <form method="POST" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="">Submit</button>
+
+      </form>
     </div>
 
   </body>
