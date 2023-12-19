@@ -8,7 +8,18 @@
   </head>
   <body>
     <div>
+      <h1>{{ product.name }}</h1>
+      <p>Price: {{ product.price }}</p>
+    </div>
+    <div>
       <img src="{{ product.image.url }}" alt="">
+    </div>
+
+    <div>
+      <h2>Description:</h2>
+      <p>{{ product.description }}</p>
+      <h3>Seller:</h3>
+      <p>{{ product.created_by }}</p>
     </div>
 
   </body>
