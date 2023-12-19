@@ -13,8 +13,11 @@
   <body>
     <main>
       <nav>
+        {% if request.user.is_authenticated %}
+        {% else %}
         <a href="{% url 'signup' %}">Sign up</a>
         <a href="{% url 'login' %}">Login</a>
+        {% endif %}
       </nav>
     </main>
     <div>
