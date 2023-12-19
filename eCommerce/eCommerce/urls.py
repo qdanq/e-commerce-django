@@ -29,4 +29,5 @@ urlpatterns = [
     path('items/', include('item.urls')),
     path('signup/', views.signup, name='signup'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('inbox/', include('conversation.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

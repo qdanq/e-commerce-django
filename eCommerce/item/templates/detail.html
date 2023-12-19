@@ -22,5 +22,6 @@
       <p>{{ product.created_by }}</p>
     </div>
 
+    <a href="{% url 'conversation:new' product.id %}"></a>
   </body>
 </html>

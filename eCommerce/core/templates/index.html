@@ -14,11 +14,11 @@
     <main>
       <nav>
         {% if request.user.is_authenticated %}
+        <a href="{% url 'item:new' %}">Post new product</a>
         {% else %}
         <a href="{% url 'signup' %}">Sign up</a>
         <a href="{% url 'login' %}">Login</a>
         {% endif %}
-        <a href="{% url 'item:new' %}">Post new product</a>
       </nav>
     </main>
     <div>
@@ -27,7 +27,9 @@
         <div>
         <a href="{% url 'item:detail' product.id %}">
           <div>
-            <img src="{{ product.image.url }}" alt="">
+            {% if product.image %}
+          <img src="{{ product.image.url }}">
+              {% endif %}
           </div>
           <div>
             <h2>{{ product.name }}</h2>
