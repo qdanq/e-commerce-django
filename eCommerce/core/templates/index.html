@@ -33,5 +33,15 @@
         </div>
       {% endfor %}
     </div>
+
+    <div>
+      <h2>Categories</h2>
+      {% for category in categories %}
+          <div>
+            <h2>{{ category.name }}</h2>
+            <p>{{ category.product.count }} products</p>
+          </div>
+      {% endfor %}
+      </div>
   </body>
 </html>
