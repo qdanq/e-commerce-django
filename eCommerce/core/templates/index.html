@@ -17,5 +17,21 @@
         <a href="">Login</a>
       </nav>
     </main>
+    <div>
+      <h2>Products</h2>
+      {% for product in products %}
+        <div>
+         <a href="">
+          <div>
+            <img src="{{ product.image.url }}" alt="">
+          </div>
+          <div>
+            <h2>{{ product.name }}</h2>
+            <p>Price: {{ product.price }}</p>
+          </div>
+        </a> 
+        </div>
+      {% endfor %}
+    </div>
   </body>
 </html>
