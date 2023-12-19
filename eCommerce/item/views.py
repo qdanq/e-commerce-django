@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 
 from .models import Product
@@ -14,7 +14,18 @@ def detail(request, pk):
 
 @login_required
 def new(request):
-    form = NewProductForm()
+    if request.method == 'POST':
+        form = NewProductForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            product = form.save(commit=False)
+            product.created_by = request.user
+            product.save()
+
+            return redirect('item:detail', pk=product.id)
+    else:
+        form = NewProductForm()
+
 
     return render(request, 'form.html', {
         'form': form
