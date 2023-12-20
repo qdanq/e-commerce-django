@@ -5,11 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <title>Conversation</title>
   </head>
   <body>
     <h1>New conversation</h1>
-  </body>
+ <form method="post" action=".">
+    {% csrf_token %}
+
+    <div>
+        {{ form.as_p }}
+    </div>
+
+    {% if form.errors or form.non_field_errors %}
+        <div>
+            {% for field in form %}
+                {{ field.errors }}
+            {% endfor %}
+
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+
+      <button>Send</button>
+      </body>
 </html>

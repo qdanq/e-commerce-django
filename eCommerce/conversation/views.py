@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decoratos import login_required
 from item.models import Product
 from .models import Conversation
 from .forms import ConversationMessageForm
 
+@login_required
 def new_conversation(request, product_pk):
     product = get_object_or_404(Product, pk=product_pk)
 
@@ -34,4 +36,12 @@ def new_conversation(request, product_pk):
     return render(request, 'new.html', {
         'form': form
         })   
-         
+
+@login_required
+def inbox(request):
+    conversations = Conversation.objects..filter(members__in=[request.user.id])
+
+    return render(request, 'inbox.html', {
+        'conversations': conversations
+        })
+
