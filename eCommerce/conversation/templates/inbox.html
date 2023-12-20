@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inbox</title>
+  </head>
+  <body>
+    <h1>Inbox</h1>
+{% for conversation in conversations %}
+            <div >
+                <div>
+                    {% for member in conversation.members.all %}
+                        {% if member != request.user %}
+                            <p><strong>{{ member.username }}</strong> | {{ conversation.modified_at }}</p>
+                            <p>{{ conversation.product.name }}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </a>
+{% endfor %}
+
+  </body>
+</html>
