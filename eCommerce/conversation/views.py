@@ -14,7 +14,7 @@ def new_conversation(request, product_pk):
     conversations = Conversation.objects.filter(product=product).filter(members__in=[request.user.id])
 
     if conversations:
-        pass
+        return redirect('conversation:detail', pk=conversations.first().id)
 
     if request.method == 'POST':
         form = ConversationMessageForm(request.POST)
