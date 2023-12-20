@@ -9,6 +9,7 @@
   <body>
     <h1>Inbox</h1>
 {% for conversation in conversations %}
+    <a href="{% url 'conversation:detail' conversation.id %}">
             <div >
                 <div>
                     {% for member in conversation.members.all %}
@@ -19,7 +20,8 @@
                     {% endfor %}
                 </div>
             </div>
-        </a>
+
+      </a>
 {% endfor %}
 
   </body>
