@@ -49,8 +49,8 @@ def inbox(request):
 def detail(request, pk):
     conversation = Conversation.objects.filter(members__in=[request.user.id]).get(pk=pk)
     
-    return render(request, 'detail.html', {
-        'conversation': conversation
+    return render(request, 'details_conv.html', {
+        'conversation': conversation,
         })
 
 

@@ -23,15 +23,6 @@
       <h3>Seller:</h3>
       <p>{{ product.created_by }}</p>
     </div>
-{% if request.user == item.created_by %}
-            <div class="mt-6 p-6 bg-white rounded-xl">
-                <p>This is your item!</p>
-            </div>
-        {% else %}  
-            <a href="{% url 'conversation:new' product.id %}">Contact seller</a>
-        {% endif %}
-
-
-    <a href="{% url 'conversation:new' product.id %}"></a>
+       <a href="{% url 'conversation:new' product.id %}">Contact Seller</a>
   </body>
 </html>

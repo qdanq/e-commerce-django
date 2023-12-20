@@ -10,7 +10,7 @@
     <h1>Conversation</h1>
 {% for message in conversation.messages.all %}
   <div >
-      <p>{{ message.created_by.username }}</p> {message.created_at}
+      <p>{{ message.created_by.username }}</p> {{message.created_at}}
       <p>{{ message.content }}</p>
     
   </div>
