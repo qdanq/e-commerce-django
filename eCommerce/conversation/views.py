@@ -58,12 +58,12 @@ def detail(request, pk):
             conversation_message.save()
             conversation.save()
 
-            return redirect('conversation:details_conv', pk=pk)
+            return redirect('conversation:detail', pk=pk)
     else:
         form = ConversationMessageForm()
     return render(request, 'details_conv.html', {
         'conversation': conversation,
-        'form': form
+        'form': form,
         })
 
 
