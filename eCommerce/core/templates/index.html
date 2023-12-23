@@ -48,8 +48,8 @@
       <h2>Categories</h2><br>
       {% for category in categories %}
           <div class="row container">
-            <h2 class="col-5">{{ category.name }}</h2>
-            <p class="col-5">{{ category.product.count }} products</p>
+            <h2 class="col-md-3">{{ category.name }}</h2>
+            <p class="col-md-4">{{ category.product.count }} products</p>
           </div>
       {% endfor %}
     </footer>
