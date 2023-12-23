@@ -27,18 +27,17 @@
     <div>
       <h2>Products</h2>
       {% for product in products %}
-        <div>
-        <a href="{% url 'item:detail' product.id %}">
+        <div class="container card my-5">
           <div>
             {% if product.image %}
-          <img src="{{ product.image.url }}">
+          <img src="{{ product.image.url }}" class="card-img-top">
               {% endif %}
           </div>
-          <div>
-            <h2>{{ product.name }}</h2>
-            <p>Price: {{ product.price }}</p>
+          <div class="card-body">
+            <h2 class="card-title">{{ product.name }}</h2>
+            <p class="card-text">Price: {{ product.price }}</p>
+        <a href="{% url 'item:detail' product.id %}" class="btn btn-primary">Details</a> 
           </div>
-        </a> 
         </div>
       {% endfor %}
     </div>
