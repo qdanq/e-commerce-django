@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %}Sign up{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
-      <h1>Login</h1>
-      <form method="POST" action=".">
+      <h1 class="py-5 my-5 text-center">Login</h1>
+      <form method="POST" action="." class="text-center form-control">
         {% csrf_token %}
         {{ form.non_field_errors }}
 
-        <div>
-          <label>username</label><br>
+        <div class="my-2">
+          <label class="form-label">Username</label><br>
           {{ form.username }}
         </div>
 
         <div>
-          <label>password</label><br>
+          <label class="form-label">Password</label><br>
           {{ form.password }}
         </div>
 
@@ -28,7 +28,8 @@
             </div>
         {% endif %}
 
-        <button type="">Submit</button>
+        <button type="" class="btn btn-primary my-3 ">Submit</button>
 
       </form>
+
 {% endblock %}
