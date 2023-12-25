@@ -1,29 +1,8 @@
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-          <p class="navbar-brand mx-2 my-2">E-commerce</p>
-        <div class="navbar-collapse">
-        {% if request.user.is_authenticated %}
-          
-        <a href="{% url 'item:new' %}" class="nav-link text-light mx-5">Post new product</a>
-        <a href="{% url 'conversation:inbox' %}" class="nav-link text-light mx-5">Inbox</a>
-        {% else %}
-        <a href="{% url 'signup' %}" class="nav-link text-light mx-5">Sign up</a>
-        <a href="{% url 'login' %}" class="nav-link text-light mx-5">Login</a>
-        {% endif %}
-        </div>
-      </nav>
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
     <div>
       <h1 class="display-3 py-5 my-5 text-center">Products</h1>
       {% for product in products %}
@@ -57,4 +36,4 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
-</html>
+{% endblock %}
