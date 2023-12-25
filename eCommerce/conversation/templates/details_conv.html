@@ -1,26 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Conversation</title>
-  </head>
-  <body>
-    <h1>Conversation</h1>
+{% extends 'base.html' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <h1 class="py-5 my-5 text-center">Conversation</h1>
 {% for message in conversation.messages.all %}
-  <div >
-      <p>{{ message.created_by.username }}</p> {{message.created_at}}
+  <div class="border mx-2 my-2 border-dark rounded">
+  <p>{{ message.created_by.username }} {{message.created_at}} </p>
       <p>{{ message.content }}</p>
     
   </div>
 {% endfor %}
 
-    <form method="post" action=".">
+    <form method="post" action="." class="text-center">
       {% csrf_token %}
       
       {{ form.as_p }}
-      <button>Send</button>
+  <div class="text-center ">
+      <button class="btn btn-primary ">Send</button>
+  </div>
     </form>
-  </body>
-</html>
+
+{% endblock %}
