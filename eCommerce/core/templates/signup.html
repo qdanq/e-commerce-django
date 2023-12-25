@@ -4,28 +4,27 @@
 
 {% block content %}
       
-      <h2 class="bg-primary">Sign up</h2>
-      <form method="POST" action=".">
+      <h2 class="py-5 my-5 text-center">Sign up</h2>
+      <form method="POST" action="." class="text-center container">
         {% csrf_token %}
         {{ form.non_field_errors }}
 
-        <div>
-          <label>username</label><br>
+        <div class="form-control ">
+          <label class="form-label">username</label><br>
           {{ form.username }}
-        </div>
 
         <div>
-          <label>email</label><br>
+          <label class="form-label">email</label><br>
           {{ form.email }}
         </div>
 
         <div>
-          <label>password</label><br>
+          <label class="form-label">password</label><br>
           {{ form.password1 }}
         </div>
 
         <div>
-          <label>repeat password</label><br>
+          <label class="form-label">repeat password</label><br>
           {{ form.password2 }}
         </div>
         {% if form.errors or form.non_field_errors %}
@@ -38,7 +37,8 @@
             </div>
         {% endif %}
 
-        <button type="">Submit</button>
+        <button type="" class="my-2">Submit</button>
+        </div>
 
       </form>
 
