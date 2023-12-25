@@ -8,8 +8,9 @@
     <title>Sign up</title>
   </head>
   <body>
-    <div>
-      <h1>Sign up</h1>
+    <main class="">
+      
+      <h2 class="bg-primary">Sign up</h2>
       <form method="POST" action=".">
         {% csrf_token %}
         {{ form.non_field_errors }}
@@ -46,7 +47,7 @@
         <button type="">Submit</button>
 
       </form>
-    </div>
+    </main>
 
   </body>
 </html>
