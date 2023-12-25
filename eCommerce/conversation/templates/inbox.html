@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inbox</title>
-  </head>
-  <body>
-    <h1>Inbox</h1>
+{% extends 'base.html' %}
+
+{% block title %}Inbox{% endblock %}
+
+{% block content %}
+    <h1 class="py-5 my-5 text-center">Inbox</h1>
 {% for conversation in conversations %}
-    <a href="{% url 'conversation:detail' conversation.id %}">
-            <div >
-                <div>
+    <a href="{% url 'conversation:detail' conversation.id %}" class="nav-link ">
+            <div class="px-5 mx-5">
+                <div class="border border-dark my-2 mx-2 text-center ">
                     {% for member in conversation.members.all %}
                         {% if member != request.user %}
                             <p><strong>{{ member.username }}</strong> | {{ conversation.modified_at }}</p>
@@ -26,3 +22,5 @@
 
   </body>
 </html>
+
+{% endblock %}
