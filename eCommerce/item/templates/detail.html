@@ -8,23 +8,23 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <title>e-commerce</title>
   </head>
-  <body>
-    <div>
-      <h1>{{ product.name }}</h1>
-      <p>Price: {{ product.price }}</p>
-    </div>
-    <div>
+  <body >
+    <div class="">
+      <h1 class="text-center my-2">{{ product.name }}</h1>
       {% if product.image %}
-      <img src="{{ product.image.url }}" alt="">
+      <div class="my-3 text-center">
+        <img src="{{ product.image.url }}" alt="">
+      </div>
       {% endif %}
     </div>
 
-    <div>
-      <h2>Description:</h2>
+    <div class="mt-2 mx-1 border border-dark w-50">
+      <h2 class="">Description:</h2>
       <p>{{ product.description }}</p>
+    </div>
       <h3>Seller:</h3>
       <p>{{ product.created_by }}</p>
-    </div>
+      <p>Price: {{ product.price }}</p>
 
     <div class="">
        <a href="{% url 'conversation:new' product.id %}", class="btn btn-info ">Contact Seller</a>

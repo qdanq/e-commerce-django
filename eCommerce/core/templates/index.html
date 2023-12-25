@@ -25,29 +25,32 @@
       </nav>
     </main>
     <div>
-      <h2>Products</h2>
+      <h1 class="display-3">Products</h1>
       {% for product in products %}
-        <div class="container card my-5">
+        <div class="container card my-5 w-50 g-0 border-secondary">
           <div>
             {% if product.image %}
-          <img src="{{ product.image.url }}" class="card-img-top">
+          <img src="{{ product.image.url }}" class="card-img-top ">
               {% endif %}
           </div>
-          <div class="card-body">
+
+          
+          <div class="card-body ">
             <h2 class="card-title">{{ product.name }}</h2>
             <p class="card-text">Price: {{ product.price }}</p>
         <a href="{% url 'item:detail' product.id %}" class="btn btn-primary">Details</a> 
           </div>
+        </div>
         </div>
       {% endfor %}
     </div>
 
     <footer><br>
       
-      <h2>Categories</h2><br>
+      <h2 class="display-4">Categories</h2><br>
       {% for category in categories %}
           <div class="row container">
-            <h2 class="col-md-3">{{ category.name }}</h2>
+            <h2 class="col-md-3 ">{{ category.name }}</h2>
             <p class="col-md-4 my-2">{{ category.product.count }} products</p>
           </div>
       {% endfor %}
