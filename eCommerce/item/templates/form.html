@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>New product</title>
-  </head>
-<body>
-    <form method="post", action="." enctype="multipart/form-data">
+{% extends 'base.html' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <form method="post", action="." enctype="multipart/form-data" class="my-5 py-2">
+  <h2 class="py-4 text-center w-50">Sell your product</h1>
       {% csrf_token %}
 
-      <div>
+      <div class="px-">
         {{ form.as_p }}
       </div>
         {% if form.errors or form.non_field_errors %}
@@ -23,8 +20,11 @@
             </div>
         {% endif %}
 
-      <button type="">Submit</button>
+    <div class="text-center w-25">
+      
+      <button type="" class="btn btn-primary">Submit</button>
 
+    </div>
     </form>
-</body>
-</html>
+
+{% endblock %}
